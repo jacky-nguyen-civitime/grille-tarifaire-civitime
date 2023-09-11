@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      h1 {
+        margin-left: 20px; /* Vous pouvez ajuster la valeur de la marge selon vos préférences */
+      }
+    </style>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart','table']});
+      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawTable);
+
+      function drawChart() {
+
+        // Premier graphe Grille tarifaire Civitime
+        var data = google.visualization.arrayToDataTable([
+          ['Nombre', 'Crédits (Essential)', { role: 'style' }, { role: 'tooltip', p: { html: true } }, 'Licences (Prenium)', { role: 'style' }, { role: 'tooltip', p: { html: true } }],
+          ['150', 4500, '#373034', '<div style="padding: 8px;"><b>Essential</b><br>Nombre : 150 crédits<br>Total : 4500,00 €<br>DONT :<br>Total crédit : 2000,00 € (13,33 € par crédit)<br>Set Up : 2500,00 €</div>', 7500, '#FDC300', '<div style="padding: 8px;"><b>Prenium</b><br>Nombre : 150 licences<br>Total : 7500,00 €<br>DONT :<br>Total licence : 5000,00 € (33,33 € par licence)<br>Set Up : 2500,00 €</div>'],
+          ['250', 5500, '#373034', '<div style="padding: 8px;"><b>Essential</b><br>Nombre : 250 crédits<br>Total : 5500,00 €<br>DONT :<br>Total crédit : 3000,00 € (12,00 € par crédit)<br>Set Up : 2500,00 €</div>', 8500, '#FDC300', '<div style="padding: 8px;"><b>Prenium</b><br>Nombre : 250 licences<br>Total : 8500,00 €<br>DONT :<br>Total licence : 6000,00 € (24,00 € par licence)<br>Set Up : 2500,00 €</div>'],
+          ['500', 7500, '#373034', '<div style="padding: 8px;"><b>Essential</b><br>Nombre : 500 crédits<br>Total : 7500,00 €<br>DONT :<br>Total crédit : 5000,00 € (10,00 € par crédit)<br>Set Up : 2500,00 €</div>', 12500, '#FDC300', '<div style="padding: 8px;"><b>Prenium</b><br>Nombre : 500 licences<br>Total : 12500,00 €<br>DONT :<br>Total licence : 10000,00 € (20,00 € par crédit)<br>Set Up : 2500,00 €</div>'],
+          ['1000', 12000, '#373034', '<div style="padding: 8px;"><b>Essential</b><br>Nombre : 1000 crédits<br>Total : 12000,00 €<br>DONT :<br>Total crédit : 9500,00 € (9,50 € par crédit)<br>Set Up : 2500,00 €</div>', 21500, '#FDC300', '<div style="padding: 8px;"><b>Prenium</b><br>Nombre : 1000 licences<br>Total : 21500,00 €<br>DONT :<br>Total licence : 19000,00 € (19,00 € par licence)<br>Set Up : 2500,00 €</div>'],
+          ['2000', 18500, '#373034', '<div style="padding: 8px;"><b>Essential</b><br>Nombre : 2000 crédits<br>Total : 18500,00 €<br>DONT :<br>Total crédit : 16000,00 € (8,00 € par crédit)<br>Set Up : 2500,00 €</div>', 34500, '#FDC300', '<div style="padding: 8px;"><b>Prenium</b><br>Nombre : 2000 licences<br>Total : 34500,00 €<br>DONT :<br>Total licence : 32000,00 € (16,00 € par licence)<br>Set Up : 2500,00 €</div>'],
+          ['4000', 24500, '#373034; opacity: 0.2', '<div style="padding: 8px;"><b>Essential</b><br>Nombre : 4000 crédits<br>Total : 24500,00 €<br>DONT :<br>Total crédit : 22000,00 € (5,50 € par crédit)<br>Set Up : 2500,00 €</div>', 50500, '#FDC300; opacity: 0.2', '<div style="padding: 8px;"><b>Prenium</b><br>Nombre : 4000 licences<br>Total : 50500,00 €<br>DONT :<br>Total licence : 48000,00 € (12,00 € par licence)<br>Set Up : 2500,00 €</div>'],
+          ['6000', 30500, '#373034; opacity: 0.2', '<div style="padding: 8px;"><b>Essential</b><br>Nombre : 6000 crédits<br>Total : 30500,00 €<br>DONT :<br>Total crédit : 28000,00 € (4,67 € par crédit)<br>Set Up : 2500,00 €</div>', 58500, '#FDC300; opacity: 0.2', '<div style="padding: 8px;"><b>Prenium</b><br>Nombre : 6000 licences<br>Total : 58500,00 €<br>DONT :<br>Total licence : 56000,00 € (9,33 € par licence)<br>Set Up : 2500,00 €</div>'],
+          ['8000', 36500, '#373034; opacity: 0.2', '<div style="padding: 8px;"><b>Essential</b><br>Nombre : 8000 crédits<br>Total : 36500,00 €<br>DONT :<br>Total crédit : 34000,00 € (4,25 € par crédit)<br>Set Up : 2500,00 €</div>', 66500, '#FDC300; opacity: 0.2', '<div style="padding: 8px;"><b>Prenium</b><br>Nombre : 8000 licences<br>Total : 66500,00 €<br>DONT :<br>Total licence : 64000,00 € (8,00 € par licence)<br>Set Up : 2500,00 €</div>'],
+          ['10000', 42500, '#373034; opacity: 0.2', '<div style="padding: 8px;"><b>Essential</b><br>Nombre : 10000 crédits<br>Total : 42500,00 €<br>DONT :<br>Total crédit : 40000,00 € (4,00 € par crédit)<br>Set Up : 2500,00 €</div>', 82500, '#FDC300; opacity: 0.2', '<div style="padding: 8px;"><b>Prenium</b><br>Nombre : 10000 licences<br>Total : 82500,00 €<br>DONT :<br>Total licence : 80000,00 € (8,00 € par licence)<br>Set Up : 2500,00 €</div>']
+        ]);
+
+        var options = {
+          // title: 'Grille tarifaire Civitime',
+          vAxis: { title: 'Prix (en euros)' },
+          hAxis: { title: 'Nombre' },
+          seriesType: 'bars',
+          tooltip: { isHtml: true },
+          series: {
+            0: { color: '#373034' }, // Couleur pour la série 'Crédits (Essential)'
+            1: { color: '#FDC300' }  // Couleur pour la série 'Licences (Prenium)'
+          }
+        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+
+        // Deuxième graphe Grille tarifaire Civitime par crédit/licence
+        var data1 = google.visualization.arrayToDataTable([
+          ['Nombre', 'Crédits (Essential)', { role: 'style' }, { role: 'tooltip', p: { html: true } }, 'Licences (Prenium)', { role: 'style' }, { role: 'tooltip', p: { html: true } }],
+          ['150', 13.33, '#373034', '<div style="padding: 8px;"><b>Essential</b><br>Nombre : 150 crédits<br>Total : 4500,00 €<br>DONT :<br>Total crédit : 2000,00 € (13,33 € par crédit)<br>Set Up : 2500,00 €</div>', 33.33, '#FDC300', '<div style="padding: 8px;"><b>Prenium</b><br>Nombre : 150 licences<br>Total : 7500,00 €<br>DONT :<br>Total licence : 5000,00 € (33,33 € par licence)<br>Set Up : 2500,00 €</div>'],
+          ['250', 12, '#373034', '<div style="padding: 8px;"><b>Essential</b><br>Nombre : 250 crédits<br>Total : 5500,00 €<br>DONT :<br>Total crédit : 3000,00 € (12,00 € par crédit)<br>Set Up : 2500,00 €</div>', 24, '#FDC300', '<div style="padding: 8px;"><b>Prenium</b><br>Nombre : 250 licences<br>Total : 8500,00 €<br>DONT :<br>Total licence : 6000,00 € (24,00 € par licence)<br>Set Up : 2500,00 €</div>'],
+          ['500', 10, '#373034', '<div style="padding: 8px;"><b>Essential</b><br>Nombre : 500 crédits<br>Total : 7500,00 €<br>DONT :<br>Total crédit : 5000,00 € (10,00 € par crédit)<br>Set Up : 2500,00 €</div>', 20, '#FDC300', '<div style="padding: 8px;"><b>Prenium</b><br>Nombre : 500 licences<br>Total : 12500,00 €<br>DONT :<br>Total licence : 10000,00 € (20,00 € par crédit)<br>Set Up : 2500,00 €</div>'],
+          ['1000', 9.5, '#373034', '<div style="padding: 8px;"><b>Essential</b><br>Nombre : 1000 crédits<br>Total : 12000,00 €<br>DONT :<br>Total crédit : 9500,00 € (9,50 € par crédit)<br>Set Up : 2500,00 €</div>', 19, '#FDC300', '<div style="padding: 8px;"><b>Prenium</b><br>Nombre : 1000 licences<br>Total : 21500,00 €<br>DONT :<br>Total licence : 19000,00 € (19,00 € par licence)<br>Set Up : 2500,00 €</div>'],
+          ['2000', 8, '#373034', '<div style="padding: 8px;"><b>Essential</b><br>Nombre : 2000 crédits<br>Total : 18500,00 €<br>DONT :<br>Total crédit : 16000,00 € (8,00 € par crédit)<br>Set Up : 2500,00 €</div>', 16, '#FDC300', '<div style="padding: 8px;"><b>Prenium</b><br>Nombre : 2000 licences<br>Total : 34500,00 €<br>DONT :<br>Total licence : 32000,00 € (16,00 € par licence)<br>Set Up : 2500,00 €</div>'],
+          ['4000', 5.5, '#373034; opacity: 0.2', '<div style="padding: 8px;"><b>Essential</b><br>Nombre : 4000 crédits<br>Total : 24500,00 €<br>DONT :<br>Total crédit : 22000,00 € (5,50 € par crédit)<br>Set Up : 2500,00 €</div>', 12, '#FDC300; opacity: 0.2', '<div style="padding: 8px;"><b>Prenium</b><br>Nombre : 4000 licences<br>Total : 50500,00 €<br>DONT :<br>Total licence : 48000,00 € (12,00 € par licence)<br>Set Up : 2500,00 €</div>'],
+          ['6000', 4.67, '#373034; opacity: 0.2', '<div style="padding: 8px;"><b>Essential</b><br>Nombre : 6000 crédits<br>Total : 30500,00 €<br>DONT :<br>Total crédit : 28000,00 € (4,67 € par crédit)<br>Set Up : 2500,00 €</div>', 9.33, '#FDC300; opacity: 0.2', '<div style="padding: 8px;"><b>Prenium</b><br>Nombre : 6000 licences<br>Total : 58500,00 €<br>DONT :<br>Total licence : 56000,00 € (9,33 € par licence)<br>Set Up : 2500,00 €</div>'],
+          ['8000', 4.25, '#373034; opacity: 0.2', '<div style="padding: 8px;"><b>Essential</b><br>Nombre : 8000 crédits<br>Total : 36500,00 €<br>DONT :<br>Total crédit : 34000,00 € (4,25 € par crédit)<br>Set Up : 2500,00 €</div>', 8, '#FDC300; opacity: 0.2', '<div style="padding: 8px;"><b>Prenium</b><br>Nombre : 8000 licences<br>Total : 66500,00 €<br>DONT :<br>Total licence : 64000,00 € (8,00 € par licence)<br>Set Up : 2500,00 €</div>'],
+          ['10000', 4, '#373034; opacity: 0.2', '<div style="padding: 8px;"><b>Essential</b><br>Nombre : 10000 crédits<br>Total : 42500,00 €<br>DONT :<br>Total crédit : 40000,00 € (4,00 € par crédit)<br>Set Up : 2500,00 €</div>', 8, '#FDC300; opacity: 0.2', '<div style="padding: 8px;"><b>Prenium</b><br>Nombre : 10000 licences<br>Total : 82500,00 €<br>DONT :<br>Total licence : 80000,00 € (8,00 € par licence)<br>Set Up : 2500,00 €</div>']
+        ]);
+        
+        var options1 = {
+          // title: 'Grille tarifaire Civitime par crédit/licence',
+          vAxis: { title: 'Prix par crédit/licence (en euros)' },
+          hAxis: { title: 'Nombre' },
+          seriesType: 'bars',
+          tooltip: { isHtml: true },
+          series: {
+            0: { color: '#373034' }, // Couleur pour la série 'Crédits (Essential)'
+            1: { color: '#FDC300' }  // Couleur pour la série 'Licences (Prenium)'
+          }
+        };
+
+        var chart1 = new google.visualization.ComboChart(document.getElementById('chart_div1'));
+        chart1.draw(data1, options1);
+      }
+  
+      function drawTable() {
+        
+        // Tableau de donnée Grille tarifaire Civitime Essentiel
+        var data2 = new google.visualization.DataTable();
+        data2.addColumn('number', 'Nombre de crédits');
+        data2.addColumn('number', '€ HT');
+        data2.addColumn('number', '€ / crédit');
+        data2.addColumn('number', 'Set Up');
+        data2.addColumn('number', 'TOTAL');
+
+        data2.addRows([
+          [150, 2000.00, 13.33, 2500.00, 4500.00],
+          [250, 3000.00, 12.00, 2500.00, 5500.00],
+          [500, 5000.00, 10.00, 2500.00, 7500.00],
+          [1000, 9500.00, 9.50, 2500.00, 12000.00],
+          [2000, 16000.00, 8.00, 2500.00, 18500.00],
+          [4000, 22000.00, 5.50, 2500.00, 24500.00],
+          [6000, 28000.00, 4.67, 2500.00, 30500.00],
+          [8000, 34000.00, 4.25, 2500.00, 36500.00],
+          [10000, 40000.00, 4.00, 2500.00, 42500.00]
+        ]);
+
+        var options2 = {
+          width: '100%',
+          height: '100%'
+        };
+
+        var table = new google.visualization.Table(document.getElementById('table_essentiel'));
+        table.draw(data2, options2);
+
+        // Tableau de donnée Grille tarifaire Civitime Prenium 
+        var data3 = new google.visualization.DataTable();
+        data3.addColumn('number', 'Nombre de licences');
+        data3.addColumn('number', '€ HT');
+        data3.addColumn('number', '€ / crédit');
+        data3.addColumn('number', 'Set Up');
+        data3.addColumn('number', 'TOTAL');
+
+        data3.addRows([
+          [150, 5000, 33.33, 2500, 7500],
+          [250, 6000, 24.00, 2500, 8500],
+          [500, 10000, 20.00, 2500, 12500],
+          [1000, 19000, 19.00, 2500, 21500],
+          [2000, 32000, 16.00, 2500, 34500],
+          [4000, 48000, 12.00, 2500, 50500],
+          [6000, 56000, 9.33, 2500, 58500],
+          [8000, 64000, 8.00, 2500, 66500],
+          [10000, 80000, 8.00, 2500, 82500]
+        ]);
+
+        var options3 = {
+          width: '100%',
+          height: '100%'
+        };
+
+        var table1 = new google.visualization.Table(document.getElementById('table_prenium'));
+        table1.draw(data3, options3);
+
+      }
+
+    </script>
+  </head>
+  <body>
+    <h1>Grille tarifaire Civitime</h1>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+    <h1>Grille tarifaire Civitime par crédit/licence</h1>
+    <div id="chart_div1" style="width: 900px; height: 500px;"></div>
+    <h1>Essentiel</h1>
+    <div id="table_essentiel" style="width: 900px; height: 500px;"></div>
+    <h1>Prenium</h1>
+    <div id="table_prenium" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
